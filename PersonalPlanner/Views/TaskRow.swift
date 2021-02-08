@@ -9,16 +9,24 @@ import SwiftUI
 
 struct TaskRow: View {
     @EnvironmentObject var model: SimplePlannerModel
-    var textColor: Color
     var task: PlannerTask
-    
     
     var body: some View {
         HStack {
-            CompleteButton()
-            Text(task.getDescription())
+            Button(action: {
+                task.status ? model.setTaskAsIncomplete(task: task, date: model.modifiedDate) : model.setTaskAsComplete(task: task, date: model.modifiedDate)
+                task.status ? task.markIncomplete() : task.markComplete()
+            }) {
+                Image(systemName: task.status ? "circle.circle.fill" : "circle.circle")
+                    .resizable()
+                    .foregroundColor(.black)
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 25, height: 25)
+            }
+            
+            Text(task.description)
                 .font(.system(size: 25, weight: .regular, design: .rounded))
-                .foregroundColor(textColor)
+                .foregroundColor(.black)
                 
         }
     }
@@ -28,6 +36,6 @@ struct TaskRow_Previews: PreviewProvider {
     static var model = SimplePlannerModel()
     
     static var previews: some View {
-        TaskRow(textColor: .black, task: PlannerTask("RUN")).environmentObject(model)
+        TaskRow(task: PlannerTask("Sample task", true)).environmentObject(model)
     }
 }

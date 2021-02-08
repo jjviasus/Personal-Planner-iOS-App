@@ -9,20 +9,19 @@ import SwiftUI
 
 struct TodayHeader: View {
     @EnvironmentObject var model: SimplePlannerModel
-    var textColor: Color
     
     var body: some View {
         HStack {
             Image(systemName: "list.bullet.rectangle")
                 //.renderingMode(.original) // gives us the original color of the icon
                 .resizable()
-                .foregroundColor(textColor)
+                .foregroundColor(.black)
                 .aspectRatio(contentMode: .fit) // keeps the aspect ratio but fits it in our frame
                 .frame(width: 30, height: 30)
             
             Text("Today")
                 .font(.system(size: 25, weight: .bold, design: .default))
-                .foregroundColor(textColor)
+                .foregroundColor(.black)
         }
         .frame(width: 200, height: 50, alignment: .center)
     }
@@ -30,6 +29,6 @@ struct TodayHeader: View {
 
 struct TodaysTasks_Previews: PreviewProvider {
     static var previews: some View {
-        TodayHeader(textColor: .black)
+        TodayHeader()
     }
 }

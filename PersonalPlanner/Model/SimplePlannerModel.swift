@@ -8,13 +8,7 @@
 import Combine
 import Foundation
 
-// Represents a simple planner. Uses the PlannerTask class as the task and PlannerDate as the date.
 public class SimplePlannerModel: ObservableObject {
-    // ObservableObject Note: Anything that conforms to ObservableObject can be used inside SwiftUI, and publish announcements when its values have changed so the user interface can be updated.
-    
-    //var didChange = PassthroughSubject<Void, Never>() // sends notifications when a change happens
-    
-    // a dictionary with PlannerDate's as keys and a List of PlannerTask's as values
     @Published var taskMap = [PlannerDate:[PlannerTask]]()
     @Published var currentDate:PlannerDate
     @Published var modifiedDate:PlannerDate
@@ -28,6 +22,9 @@ public class SimplePlannerModel: ObservableObject {
         modifiedDate = PlannerDate(month: calendar.component(.month, from: Date()), day: calendar.component(.day, from: Date()), year: calendar.component(.year, from: Date()))
         
         dateChange = 0
+        
+        self.addTask(task: PlannerTask("Run", false), date: PlannerDate(month: 1,day: 7,year: 2021))
+        self.addTask(task: PlannerTask("Run again", false), date: PlannerDate(month: 1,day: 8,year: 2021))
     }
     
     // modifyDate
@@ -46,7 +43,6 @@ public class SimplePlannerModel: ObservableObject {
         modifiedDate = PlannerDate(month: currentDate.getMonth(), day: currentDate.getDay(), year: currentDate.getYear())
         print(modifiedDate.getDay())
     }
-    
     
     // addTask
     public func addTask(task: PlannerTask, date: PlannerDate) {
@@ -70,7 +66,7 @@ public class SimplePlannerModel: ObservableObject {
     public func removeTask(task: PlannerTask, date: PlannerDate) {
         if let val = taskMap[date] {
             // date is present in dictionary
-        
+            
             // check that val (the task list) contains the given task
             if val.contains(task) {
                 // contains the task
@@ -89,53 +85,53 @@ public class SimplePlannerModel: ObservableObject {
         }
     }
     
-//    // setTaskAsIncomplete
-//    public func setTaskAsIncomplete(task: PlannerTask, date: PlannerDate) {
-//        if let val = taskMap[date] {
-//            // date is present in dictionary
-//        
-//            // check that val (the task list) contains the given task
-//            if val.contains(task) {
-//                // contains the task
-//                
-//                // mark task as incomplete
-//                let index = taskMap[date]?.firstIndex(of: task)
-//                taskMap[date]?[index!].markIncomplete()
-//            } else {
-//                // task is not present at date
-//                
-//                // TODO: throw exception or do nothing?
-//            }
-//        } else {
-//            // date is not present
-//            
-//            // TODO: throw exception or do nothing?
-//        }
-//    }
+    // setTaskAsIncomplete
+    public func setTaskAsIncomplete(task: PlannerTask, date: PlannerDate) {
+        if let val = taskMap[date] {
+            // date is present in dictionary
+            
+            // check that val (the task list) contains the given task
+            if val.contains(task) {
+                // contains the task
+                
+                // mark task as incomplete
+                let index = taskMap[date]?.firstIndex(of: task)
+                taskMap[date]?[index!].markIncomplete()
+            } else {
+                // task is not present at date
+                
+                // TODO: throw exception or do nothing?
+            }
+        } else {
+            // date is not present
+            
+            // TODO: throw exception or do nothing?
+        }
+    }
     
-//    // setTaskAsComplete
-//    public func setTaskAsComplete(task: PlannerTask, date: PlannerDate) {
-//        if let val = taskMap[date] {
-//            // date is present in dictionary
-//        
-//            // check that val (the task list) contains the given task
-//            if val.contains(task) {
-//                // contains the task
-//                
-//                // mark task as complete
-//                let index = taskMap[date]?.firstIndex(of: task)
-//                taskMap[date]?[index!].markComplete()
-//            } else {
-//                // task is not present at date
-//                
-//                // TODO: throw exception or do nothing?
-//            }
-//        } else {
-//            // date is not present
-//            
-//            // TODO: throw exception or do nothing?
-//        }
-//    }
+    // setTaskAsComplete
+    public func setTaskAsComplete(task: PlannerTask, date: PlannerDate) {
+        if let val = taskMap[date] {
+            // date is present in dictionary
+            
+            // check that val (the task list) contains the given task
+            if val.contains(task) {
+                // contains the task
+                
+                // mark task as complete
+                let index = taskMap[date]?.firstIndex(of: task)
+                taskMap[date]?[index!].markComplete()
+            } else {
+                // task is not present at date
+                
+                // TODO: throw exception or do nothing?
+            }
+        } else {
+            // date is not present
+            
+            // TODO: throw exception or do nothing?
+        }
+    }
     
     // getTasksAtDate
     public func getTasksAtDate(date: PlannerDate) -> [PlannerTask] {
@@ -151,14 +147,8 @@ public class SimplePlannerModel: ObservableObject {
             return []
         }
     }
-    
-    
-    // getAllTasks
-    
-    // moveTask
-    
-    // areTasksComplete (tasksCompleteAtDate)
-    
-    
-   
+
 }
+
+
+// ObservableObject Note: Anything that conforms to ObservableObject can be used inside SwiftUI, and publish announcements when its values have changed so the user interface can be updated.

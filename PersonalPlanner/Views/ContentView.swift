@@ -10,11 +10,10 @@ import SwiftUI
 struct ContentView: View {
     @EnvironmentObject var model: SimplePlannerModel
     @State private var showCalendar:Bool = false
-    //@State private var dateToDisplay:PlannerDate // this is the date the user is currently viewing
     
     var body: some View {
         ZStack {
-            BackgroundColor(startColor: Color("PinkGradient"), endColor: Color("YellowGradient")) // the binding ($) makes sure that the isDark variable we are passing to BackgroundColor will always be the same as teh isDark variable in the ContentView
+            BackgroundColor(startColor: Color("PinkGradient"), endColor: Color("YellowGradient"))
             
             VStack {
                 DateHeader()
@@ -22,13 +21,13 @@ struct ContentView: View {
                 
                 Spacer()
                 
-                TaskPage(textColor: .black)
+                TaskPage()
                     .padding()
                 
                 Spacer()
                 
                 HStack {
-                    LeftButton(textColor: .black)
+                    LeftButton()
                     
                     Button {
                         // actions
@@ -36,14 +35,13 @@ struct ContentView: View {
                     } label: {
                         // appearance
                         if showCalendar {
-                            TodayHeader( textColor: .black)
+                            TodayHeader()
                         } else {
-                            CalendarHeader( textColor: .black)
+                            CalendarHeader()
                         }
                     }
                     
-                    // needs to be a button
-                    RightButton(textColor: .black)
+                    RightButton()
                 }
             }
             
@@ -58,3 +56,6 @@ struct ContentView_Previews: PreviewProvider {
         ContentView().environmentObject(model)
     }
 }
+
+// the binding ($) makes sure that the isDark variable we are passing to BackgroundColor will always be the same as thh isDark variable in the ContentView
+
