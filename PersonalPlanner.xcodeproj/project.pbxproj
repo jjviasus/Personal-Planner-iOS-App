@@ -25,6 +25,7 @@
 		D0B70DF225950B0300FC973E /* TaskPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B70DF125950B0300FC973E /* TaskPage.swift */; };
 		D0B70DF525950DF400FC973E /* TaskRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B70DF425950DF400FC973E /* TaskRow.swift */; };
 		D0B70DF92595169100FC973E /* ToDoHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B70DF82595169100FC973E /* ToDoHeader.swift */; };
+		D0C897A625D793620056E7AB /* SelectDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C897A525D793620056E7AB /* SelectDate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		D0B70DF125950B0300FC973E /* TaskPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskPage.swift; sourceTree = "<group>"; };
 		D0B70DF425950DF400FC973E /* TaskRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRow.swift; sourceTree = "<group>"; };
 		D0B70DF82595169100FC973E /* ToDoHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoHeader.swift; sourceTree = "<group>"; };
+		D0C897A525D793620056E7AB /* SelectDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectDate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				D0B70DF425950DF400FC973E /* TaskRow.swift */,
 				D04A86D12593B97500B4770F /* BackgroundColor.swift */,
 				D08BB145259E4B2F00698176 /* Headers */,
+				D0C897A525D793620056E7AB /* SelectDate.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -221,6 +224,7 @@
 				D0B70DF92595169100FC973E /* ToDoHeader.swift in Sources */,
 				D057F90C2592672800D87EC4 /* PlannerDate.swift in Sources */,
 				D04A86CF2593B74700B4770F /* DateHeader.swift in Sources */,
+				D0C897A625D793620056E7AB /* SelectDate.swift in Sources */,
 				D04A86C62593B2FD00B4770F /* CalendarHeader.swift in Sources */,
 				D08BB142259E44A000698176 /* TaskRowViewModel.swift in Sources */,
 				D057F2DB25922B7C00CD4CFD /* ContentView.swift in Sources */,

@@ -45,6 +45,8 @@ struct ContentView: View {
                 }
             }
             
+            SelectDate()
+            
         }
     }
 }
