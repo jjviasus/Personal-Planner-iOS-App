@@ -4,55 +4,19 @@
 //
 //  Created by Justin Viasus on 12/22/20.
 //
-
 import Foundation
 
-
-public class PlannerTask: Equatable, Identifiable {
-    
-    public var id: String = UUID().uuidString // automatically assigns a unique id to each task
+struct PlannerTask: Identifiable {
+    var id: String = UUID().uuidString
     var description:String
     var status:Bool
-    
-    public init(_ description:String, _ status:Bool) {
-        self.description = description
-        self.status = status
-    }
-    
-    public func updateDescription(_ description:String) {
-        self.description = description
-    }
-    
-    public func markComplete() {
-        self.status = true
-    }
-    
-    public func markIncomplete() {
-        self.status = false
-    }
-    
-    public static func == (lhs: PlannerTask, rhs: PlannerTask) -> Bool {
-        return lhs.description == rhs.description && lhs.status == rhs.status
-    }
 }
 
-// this is test data
+// test data
 #if DEBUG
 let testDataTasks = [
-    PlannerTask("Create View-Models", false),
-    PlannerTask("Get a single date to work", false),
-    PlannerTask("This task is complete!", true)
+    PlannerTask(description: "Create View-Models", status: false),
+    PlannerTask(description: "Get a single date to work", status: false),
+    PlannerTask(description: "This task is complete!", status: true)
 ]
 #endif
-
-//public func getDescription() -> String {
-//    return self.description
-//}
-//
-//public func getStatus() -> Bool {
-//    return self.status
-//}
-//
-//public func toggleStatus() {
-//    self.status = !self.status
-//}
