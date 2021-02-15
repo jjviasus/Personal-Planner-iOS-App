@@ -6,7 +6,7 @@
 //
 import Foundation
 
-struct PlannerTask: Identifiable {
+struct Task: Identifiable {
     var id: String = UUID().uuidString
     var description:String
     var status:Bool
@@ -15,8 +15,8 @@ struct PlannerTask: Identifiable {
 // test data
 #if DEBUG
 let testDataTasks = [
-    PlannerTask(description: "Create View-Models", status: false),
-    PlannerTask(description: "Get a single date to work", status: false),
-    PlannerTask(description: "This task is complete!", status: true)
+    Task(description: "Create View-Models", status: false),
+    Task(description: "Get a single date to work", status: false),
+    Task(description: "This task is complete!", status: true)
 ]
 #endif

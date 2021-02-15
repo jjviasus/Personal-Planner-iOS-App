@@ -8,16 +8,16 @@
 import Foundation
 import Combine
 
-// swiftui can observe any changes we make to the viewmodel also we want elements to be identifiable
-class TaskCellViewModel: ObservableObject, Identifiable {
-    @Published var task: PlannerTask // any change on the task will be listened to
+// swiftui can observe any changes we make to the viewmodel, also we want elements to be identifiable
+class TaskRowViewModel: ObservableObject, Identifiable {
+    @Published var task: Task // any change on the task will be listened to
     
     var id = ""
     @Published var completionStateIconName = ""
     
     private var cancellables = Set<AnyCancellable>()
     
-    init(task: PlannerTask) {
+    init(task: Task) {
         self.task = task
         
         $task
