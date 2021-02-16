@@ -22,7 +22,7 @@ class TaskRowViewModel: ObservableObject, Identifiable {
         
         $task
             .map { task in
-                task.status ? "checkmark.circle.fill" : "circle" // returns the name for the icon
+                task.status ? "circle.circle.fill" : "circle.circle" // returns the name for the icon
             }
             .assign(to: \.completionStateIconName, on: self) // stores it in the completionStateIconName property
             .store(in: &cancellables) // memory management

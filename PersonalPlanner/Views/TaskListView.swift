@@ -18,11 +18,11 @@ struct TaskListView: View {
         NavigationView {
             VStack(alignment: .leading) {
                 List {
-                    ForEach(taskListVM.taskCellViewModels) { taskCellVM in
-                        TaskRowView(taskCellVM: taskCellVM)
+                    ForEach(taskListVM.taskRowViewModels) { taskCellVM in
+                        TaskRowView(taskRowVM: taskCellVM)
                     }
                     if presentAddNewItem {
-                        TaskRowView(taskCellVM: TaskRowViewModel(task: Task(description: "", status: false))) { task in
+                        TaskRowView(taskRowVM: TaskRowViewModel(task: Task(description: "", status: false))) { task in
                             self.taskListVM.addTask(task: task)
                             self.presentAddNewItem.toggle() // whenever we add a new element we will hide the editor cell
                         }

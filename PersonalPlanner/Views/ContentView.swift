@@ -9,7 +9,10 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        TaskListView()
+        VStack {
+            Text("1/11/2000")
+            TaskListView()
+        }
     }
 }
 

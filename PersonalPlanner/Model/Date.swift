@@ -7,17 +7,17 @@
 
 import Foundation
 
-public class PlannerDate : Comparable, Hashable {
+struct Date : Comparable, Hashable {
     
 //    enum ValidationError: Error {
 //            case invalidDate
 //        }
     
-    private var day:Int
-    private var month:Int
-    private var year:Int
+    var day:Int
+    var month:Int
+    var year:Int
     
-    public init(month:Int, day:Int, year:Int) { // throws
+    init(month:Int, day:Int, year:Int) { // throws
         // check for invalid dates
 //        if (month <= 0 || day <= 0 || year <= 0) {
 //            throw ValidationError.invalidDate
@@ -29,20 +29,8 @@ public class PlannerDate : Comparable, Hashable {
         self.year = year
     }
     
-    public func getDay() -> Int {
-        return self.day
-    }
-    
-    public func getMonth() -> Int {
-        return self.month
-    }
-    
-    public func getYear() -> Int {
-        return self.year
-    }
-    
-    // need to make it comparable
-    public static func < (lhs: PlannerDate, rhs: PlannerDate) -> Bool {
+    // make it comparable
+    static func < (lhs: Date, rhs: Date) -> Bool {
         if lhs.year != rhs.year {
             return lhs.year < rhs.year
         } else if lhs.month != rhs.month {
@@ -52,12 +40,13 @@ public class PlannerDate : Comparable, Hashable {
         }
     }
     
-    public static func == (lhs: PlannerDate, rhs: PlannerDate) -> Bool {
+    static func == (lhs: Date, rhs: Date) -> Bool {
         return lhs.year == rhs.year && lhs.month == rhs.month
             && lhs.day == rhs.day
     }
     
-    public func hash(into hasher: inout Hasher) {
+    // make it hashable
+    func hash(into hasher: inout Hasher) {
         hasher.combine(day)
         hasher.combine(month)
         hasher.combine(year)

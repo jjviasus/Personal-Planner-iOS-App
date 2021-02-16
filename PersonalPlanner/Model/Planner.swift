@@ -8,7 +8,7 @@
 import Combine
 import Foundation
 
-//public class SimplePlannerModel: ObservableObject {
+//public class Planner: ObservableObject {
 //    @Published var taskMap = [PlannerDate:[PlannerTask]]()
 //    @Published var currentDate:PlannerDate
 //    @Published var modifiedDate:PlannerDate
